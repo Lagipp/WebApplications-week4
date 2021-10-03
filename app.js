@@ -10,6 +10,7 @@ var app = express();
 
 const port = 8001;
 
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
