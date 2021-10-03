@@ -8,6 +8,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const port = 8001;
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,5 +19,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
+app.listen(port, () => console.log(`Server listening to port ${port}!`));
+
 
 module.exports = app;
