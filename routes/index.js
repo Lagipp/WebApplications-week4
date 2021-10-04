@@ -8,12 +8,15 @@ let JSONrecipe = {'name': '', 'instructions': ['fry the bacon', 'scramble the eg
 
 
 /* GET index page. */
+
+
 router.get('/', function(req, res, next) {
-  fetch("http://localhost:8001/recipe/pizza")
+  res.render('recipe', { title: 'epic recipe', h1: "OTSIKKO", p: "PARAGRAFI" } );
+  fetch("/recipe/food")
   .then(res => res.json())
   .then(data => {
     console.log("--DEBUG: inside fetch");
-    res.render('recipe', { title: 'epic recipe', h1: data.name, p: data.instructions } );
+    //res.render('recipe', { title: 'epic recipe', h1: data.name, p: data.instructions } );
   });
 });
 
@@ -32,7 +35,7 @@ router.get('/recipe/:food', function(req, res, next) {
 //JSON.stringify
 
 /*
-fetch("http://localhost:8001/recipe/pizza")
+fetch("/recipe/pizza")
   .then(res => res.json())
   .then(data => console.log(data))
 */
