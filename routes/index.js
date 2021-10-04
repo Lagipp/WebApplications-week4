@@ -14,16 +14,21 @@ router.get('/', function(req, res, next) {
 router.get('/recipe/:food', function(req, res, next) {
   JSONrecipe.name = req.params.food
   //res.json({name:req.params.food, instructions:"", ingredients:""})
-  //res.send(JSONrecipe);
+  res.send(JSONrecipe);
   console.log("");
   console.log("--DEBUG: The recipe you wanted was: " + req.params.food);
   console.log("--DEBUG: in JSON: " + JSONrecipe.name);
   console.log("");
 
-  res.render('recipe', { title: 'epic recipe', h1: JSONrecipe.name, p: (JSONrecipe.instructions) });
+  //res.render('recipe', { title: 'epic recipe', h1: JSONrecipe.name, p: (JSONrecipe.instructions) });
   
 //JSON.stringify
 
+/*
+fetch("http://localhost:8001/recipe/pizza")
+  .then(res => res.json())
+  .then(data => console.log(data))
+*/
 
 });
 
