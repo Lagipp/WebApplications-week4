@@ -5,9 +5,10 @@ var router = express.Router();
 
 let JSONrecipe = {'name': '', 'instructions': ['fry the bacon', 'scramble the eggs'], 'ingredients': ['2 eggs', '4 strips of bacon']};
 
+let JSONanother = {'name': '', 'instruction': [], 'ingredients': []};
+
 
 /* GET index page. */
-
 router.get('/', function(req, res, next) {
   res.render('recipe', { title: 'epic recipe', h1: "h1", p: "PARAGRAFI" } );
     
@@ -26,5 +27,9 @@ router.get('/recipe/:food', function(req, res, next) {
 
 });
 
+/* create POST route for recipe. */
+router.post('/recipe', function(req, res, next) {
+  // code
+})
 
 module.exports = router;
