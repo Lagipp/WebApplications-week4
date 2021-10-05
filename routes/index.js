@@ -1,7 +1,6 @@
 const { json } = require('express');
 var express = require('express');
 var router = express.Router();
-//const fetch = require('node-fetch');
 
 
 let JSONrecipe = {'name': '', 'instructions': ['fry the bacon', 'scramble the eggs'], 'ingredients': ['2 eggs', '4 strips of bacon']};
@@ -9,15 +8,10 @@ let JSONrecipe = {'name': '', 'instructions': ['fry the bacon', 'scramble the eg
 
 /* GET index page. */
 
-
 router.get('/', function(req, res, next) {
-  res.render('recipe', { title: 'epic recipe', h1: "OTSIKKO", p: "PARAGRAFI" } );
-  fetch("/recipe/food")
-  .then(res => res.json())
-  .then(data => {
-    console.log("--DEBUG: inside fetch");
-    //res.render('recipe', { title: 'epic recipe', h1: data.name, p: data.instructions } );
-  });
+  res.render('recipe', { title: 'epic recipe', h1: "h1", p: "PARAGRAFI" } );
+    
+
 });
 
 /* GET food page. */
@@ -29,16 +23,6 @@ router.get('/recipe/:food', function(req, res, next) {
   console.log("--DEBUG: The recipe you wanted was: " + req.params.food);
   console.log("--DEBUG: in JSON: " + JSONrecipe.name);
   console.log("");
-
-  //res.render('recipe', { title: 'epic recipe', h1: JSONrecipe.name, p: (JSONrecipe.instructions) });
-  
-//JSON.stringify
-
-/*
-fetch("/recipe/pizza")
-  .then(res => res.json())
-  .then(data => console.log(data))
-*/
 
 });
 

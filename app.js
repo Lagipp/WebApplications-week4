@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
-const port = 8001;
+//const port = 8001;
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -24,7 +24,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
-app.listen(port, () => console.log(`Server listening to port ${port}!`));
+//app.listen(port, () => console.log(`Server listening to port ${port}!`));
 
 
 module.exports = app;
