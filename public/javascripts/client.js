@@ -39,7 +39,7 @@ fetch("/recipe/omelette")
 
   });
 
-  const recipeName = document.getElementById("name-text");
+  const recipeTextArea = document.getElementById("name-text");
   const ingredientsTextArea = document.getElementById("ingredients-text");
   const instructionsTextArea = document.getElementById("instructions-text");
   
@@ -47,30 +47,51 @@ fetch("/recipe/omelette")
   const addInstructionsButton = document.getElementById("add-instruction");
   const addSubmitButton = document.getElementById("submit");
 
-  let dataList = { ingredients: [], instructions: [] };
+  let dataList = { name: "", ingredients: [], instructions: [] };
 
   /* creating eventListeners for the buttons */
 
   addIngredientsButton.addEventListener("click", function () {
     let ingrInput = ingredientsTextArea.value;
-    dataList.ingredients.append(ingrInput);
+    dataList.ingredients.push(ingrInput);
+
+
+    /*
+    let dataArray = dataList.ingredients.split("\r\n");
+    for (let m = 0; m < dataArray.length; m++)
+    {
+      dataArray[m] = JSON.parse(dataArray[m]);
+    }
+    */
+
+    console.log("== DEBUG: inside datalist.ingredients: " + JSON.stringify(dataList.ingredients));
   });
 
   addInstructionsButton.addEventListener("click", function() {
     let instrInput = instructionsTextArea.value;
-    dataList.instructions.append(instrInput);
+    dataList.instructions.push(instrInput);
+    console.log("== DEBUG: inside datalist.instructions: " + JSON.stringify(dataList.instructions));
   });
 
   addSubmitButton.addEventListener("click", function() {
+    let recipeInput = recipeTextArea.value;
     console.log("== DEBUG: before fetch in 'submit'-button");
     fetch("/recipe", {
       method: 'POST',
-      headers: {
+      headers: 
+      {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(dataList),
     })
     .then(response => response.json())
-    .then(dataList => console.log(dataList))
+    .then(
+      console.log("==DEBUG: inside second '.then' in fetch()"),
+      //let recipeInput = recipeTextArea.value,
+      //dataList.name.push(recipeInput),
+      //console.log("== DEBUG: inside dataList.recipe: " + dataList.name),
+      console.log(dataList))
+      //return dataList;
+      //dataList => 
   });
 
