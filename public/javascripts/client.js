@@ -38,3 +38,39 @@ fetch("/recipe/omelette")
     wrappingDiv.appendChild(unorderedList2);
 
   });
+
+  const recipeName = document.getElementById("name-text");
+  const ingredientsTextArea = document.getElementById("ingredients-text");
+  const instructionsTextArea = document.getElementById("instructions-text");
+  
+  const addIngredientsButton = document.getElementById("add-ingredient");
+  const addInstructionsButton = document.getElementById("add-instruction");
+  const addSubmitButton = document.getElementById("submit");
+
+  let dataList = { ingredients: [], instructions: [] };
+
+  /* creating eventListeners for the buttons */
+
+  addIngredientsButton.addEventListener("click", function () {
+    let ingrInput = ingredientsTextArea.value;
+    dataList.ingredients.append(ingrInput);
+  });
+
+  addInstructionsButton.addEventListener("click", function() {
+    let instrInput = instructionsTextArea.value;
+    dataList.instructions.append(instrInput);
+  });
+
+  addSubmitButton.addEventListener("click", function() {
+    console.log("== DEBUG: before fetch in 'submit'-button");
+    fetch("/recipe", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataList),
+    })
+    .then(response => response.json())
+    .then(dataList => console.log(dataList))
+  });
+

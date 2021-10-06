@@ -10,7 +10,7 @@ let JSONanother = {'name': '', 'instruction': [], 'ingredients': []};
 
 /* GET index page. */
 router.get('/', function(req, res, next) {
-  res.render('recipe', { title: 'epic recipe', h1: "h1", p: "PARAGRAFI" } );
+  res.render('recipe', { title: 'epic recipe', h1: "h1" } );
     
 
 });
