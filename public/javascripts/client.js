@@ -1,7 +1,7 @@
 console.log("client.js up and running");
 
 
-/*
+
 fetch("/recipe/omelette")
   .then(response => response.json())
   .then(data => {
@@ -40,7 +40,7 @@ fetch("/recipe/omelette")
     wrappingDiv.appendChild(unorderedList2);
 
   });
-*/
+
 
   const recipeTextArea = document.getElementById("name-text");
   const ingredientsTextArea = document.getElementById("ingredients-text");
