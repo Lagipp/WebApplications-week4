@@ -1,5 +1,7 @@
 console.log("client.js up and running");
 
+
+/*
 fetch("/recipe/omelette")
   .then(response => response.json())
   .then(data => {
@@ -14,11 +16,11 @@ fetch("/recipe/omelette")
     ingredientsArray = data.instructions.length;
 
 
-    /* Changing the name */
+    // Changing the name 
     header.innerHTML = data.name;
 
 
-    /* Adding the ingredients from JSON to an unordered list */
+    // Adding the ingredients from JSON to an unordered list 
     for (m = 0; m < ingredientsArray; m++)
     {
         let listItem = document.createElement("li");
@@ -28,7 +30,7 @@ fetch("/recipe/omelette")
     wrappingDiv.appendChild(unorderedList);
     
 
-    /* Adding the instructions from JSON to an unordered list */
+    // Adding the instructions from JSON to an unordered list 
     for (p = 0; p < instructionsArray; p++)
     {
         let listItem = document.createElement("li");
@@ -38,6 +40,7 @@ fetch("/recipe/omelette")
     wrappingDiv.appendChild(unorderedList2);
 
   });
+*/
 
   const recipeTextArea = document.getElementById("name-text");
   const ingredientsTextArea = document.getElementById("ingredients-text");
@@ -47,6 +50,8 @@ fetch("/recipe/omelette")
   const addInstructionsButton = document.getElementById("add-instruction");
   const addSubmitButton = document.getElementById("submit");
 
+
+  /* JSON object for saving values */
   let dataList = { name: "", ingredients: [], instructions: [] };
 
 
@@ -118,9 +123,6 @@ fetch("/recipe/omelette")
     .then(response => response.json())
     .then(
       console.log("== DEBUG: inside second '.then' in fetch()"),
-      //let recipeInput = recipeTextArea.value,
-      //dataList.name.push(recipeInput),
-      //console.log("== DEBUG: inside dataList.recipe: " + dataList.name),
       console.log(dataList))
       //return dataList;
       //dataList => 
