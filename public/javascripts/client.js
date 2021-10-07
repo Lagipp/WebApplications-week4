@@ -49,32 +49,62 @@ fetch("/recipe/omelette")
 
   let dataList = { name: "", ingredients: [], instructions: [] };
 
+
+
   /* creating eventListeners for the buttons */
 
+
+
   addIngredientsButton.addEventListener("click", function () {
-    let ingrInput = ingredientsTextArea.value;
-    dataList.ingredients.push(ingrInput);
+
+    /* splitting the values by newline */
+    let ingrInput = ingredientsTextArea.value.split(/\r\n|\r|\n/);
 
 
-    /*
-    let dataArray = dataList.ingredients.split("\r\n");
-    for (let m = 0; m < dataArray.length; m++)
+    /* checking if the text-area is empty */
+
+    if (ingrInput == "")
     {
-      dataArray[m] = JSON.parse(dataArray[m]);
+      console.log("*** ERR: empty string in 'ingredients-textArea");
+    } else 
+    {
+      dataList.ingredients.push(ingrInput);
     }
-    */
 
     console.log("== DEBUG: inside datalist.ingredients: " + JSON.stringify(dataList.ingredients));
   });
 
+
   addInstructionsButton.addEventListener("click", function() {
-    let instrInput = instructionsTextArea.value;
-    dataList.instructions.push(instrInput);
+
+    /* splitting the values by newline */
+    let instrInput = instructionsTextArea.value.split(/\r\n|\r|\n/);
+
+
+    /* checking if the text-area is empty */
+
+    if (instrInput == "")
+    {
+      console.log("*** ERR: empty string in 'instructions-textArea");
+    } else
+    {
+      dataList.instructions.push(instrInput);
+    }
     console.log("== DEBUG: inside datalist.instructions: " + JSON.stringify(dataList.instructions));
   });
 
+
   addSubmitButton.addEventListener("click", function() {
-    let recipeInput = recipeTextArea.value;
+    
+    if (recipeTextArea.value != "")
+    {
+      let recipeInput = recipeTextArea.value;
+    }
+    else
+    {
+      console.log("*** ERR: empty string in 'recipe-textArea");
+    }
+
     console.log("== DEBUG: before fetch in 'submit'-button");
     fetch("/recipe", {
       method: 'POST',
@@ -86,7 +116,7 @@ fetch("/recipe/omelette")
     })
     .then(response => response.json())
     .then(
-      console.log("==DEBUG: inside second '.then' in fetch()"),
+      console.log("== DEBUG: inside second '.then' in fetch()"),
       //let recipeInput = recipeTextArea.value,
       //dataList.name.push(recipeInput),
       //console.log("== DEBUG: inside dataList.recipe: " + dataList.name),

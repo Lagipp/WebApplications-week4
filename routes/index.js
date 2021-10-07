@@ -5,7 +5,7 @@ var router = express.Router();
 
 let JSONrecipe = {'name': '', 'instructions': ['fry the bacon', 'scramble the eggs'], 'ingredients': ['2 eggs', '4 strips of bacon']};
 
-let JSONanother = {'name': '', 'instruction': [], 'ingredients': []};
+// let JSONanother = {'name': '', 'instruction': [], 'ingredients': []};
 
 
 /* GET index page. */
@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
 /* GET food page. */
 router.get('/recipe/:food', function(req, res, next) {
   JSONrecipe.name = req.params.food
-  //res.json({name:req.params.food, instructions:"", ingredients:""})
   res.send(JSONrecipe);
   console.log("");
   console.log("--DEBUG: The recipe you wanted was: " + req.params.food);
@@ -29,7 +28,7 @@ router.get('/recipe/:food', function(req, res, next) {
 
 /* create POST route for recipe. */
 router.post('/recipe', function(req, res, next) {
-  console.log("== DEBUG: POST route: " + req.body);
+  console.log("== DEBUG: POST route in 'index.js': " + JSON.stringify(req.body));
   //res.send("POST was succesful!");
 })
 
