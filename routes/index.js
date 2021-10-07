@@ -30,7 +30,7 @@ router.get('/recipe/:food', function(req, res, next) {
 /* create POST route for recipe. */
 router.post('/recipe', function(req, res, next) {
   console.log("== DEBUG: POST route in 'index.js': " + JSON.stringify(req.body));
-  res.send("POST was succesful!");
+  res.send(req.body);
   //return ;
 })
 
