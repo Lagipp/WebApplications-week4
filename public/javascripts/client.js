@@ -99,6 +99,7 @@ fetch("/recipe/omelette")
     if (recipeTextArea.value != "")
     {
       let recipeInput = recipeTextArea.value;
+      dataList.name = recipeInput;      // redundant? why do this?
     }
     else
     {
@@ -123,5 +124,7 @@ fetch("/recipe/omelette")
       console.log(dataList))
       //return dataList;
       //dataList => 
-  });
+  }
+  
+    );
 

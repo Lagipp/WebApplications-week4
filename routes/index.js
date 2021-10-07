@@ -1,5 +1,6 @@
 const { json } = require('express');
 var express = require('express');
+const { response } = require('../app');
 var router = express.Router();
 
 
@@ -29,7 +30,8 @@ router.get('/recipe/:food', function(req, res, next) {
 /* create POST route for recipe. */
 router.post('/recipe', function(req, res, next) {
   console.log("== DEBUG: POST route in 'index.js': " + JSON.stringify(req.body));
-  //res.send("POST was succesful!");
+  res.send("POST was succesful!");
+  //return ;
 })
 
 module.exports = router;
