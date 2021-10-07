@@ -112,6 +112,8 @@ fetch("/recipe/omelette")
     }
 
     console.log("== DEBUG: before fetch in 'submit'-button");
+
+    
     fetch("/recipe", {
       method: 'POST',
       headers: 
