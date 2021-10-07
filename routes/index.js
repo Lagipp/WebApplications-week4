@@ -29,10 +29,18 @@ router.get('/recipe/:food', function(req, res, next) {
 });
 
 
+/* GET recipe page */
+router.get('/recipe', function(req, res, next) {
+  res.render('recipe-page', { title: 'toimii' });
+  //res.send("HELLO WORLD!");
+})
+
+
+
 /* create POST route for recipe. */
 router.post('/recipe', function(req, res, next) {
   console.log("== DEBUG: POST route in 'index.js': " + JSON.stringify(req.body));
-  res.send(req.body);
+  res.send(JSON.stringify(req.body));
 
   /* https://masteringjs.io/tutorials/express/body */
 
