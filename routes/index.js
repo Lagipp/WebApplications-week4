@@ -31,7 +31,7 @@ router.get('/recipe/:food', function(req, res, next) {
 
 /* GET recipe page */
 router.get('/recipe', function(req, res, next) {
-  res.json(dataList);
+  res.send(req.body);
   //res.send("HELLO WORLD!");
 })
 
