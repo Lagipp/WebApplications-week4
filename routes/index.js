@@ -52,4 +52,11 @@ router.post('/recipe', function(req, res, next) {
 
 })
 
+
+router.post('/images', function(req, res, next) {
+  /*  TODO  */
+  // res.send(req.body);
+
+})
+
 module.exports = router;

@@ -50,6 +50,7 @@ fetch("/recipe/omelette")
   const addInstructionsButton = document.getElementById("add-instruction");
   const addSubmitButton = document.getElementById("submit");
 
+  const addImagesButton = document.getElementById("image-input");
 
   /* JSON object for saving values */
   let dataList = { name: "", ingredients: [], instructions: [] };
@@ -98,6 +99,12 @@ fetch("/recipe/omelette")
     console.log("== DEBUG: inside datalist.instructions: " + JSON.stringify(dataList.instructions));
   });
 
+/*
+  addImagesButton.addEventListener("input", function() {
+    let image = 
+
+  });
+*/
 
   addSubmitButton.addEventListener("click", function() {
     
