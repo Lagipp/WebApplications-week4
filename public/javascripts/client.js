@@ -123,12 +123,11 @@ fetch("/recipe/omelette")
       body: JSON.stringify(dataList),
     })
     .then(response => response.json())
-    .then(
+    .then(data => {
       console.log("== DEBUG: inside second '.then' in fetch()"),
-      console.log(dataList))
+      console.log(data)
       //return dataList;
       //dataList => 
-  }
-  
-    );
+  })
+});
 
