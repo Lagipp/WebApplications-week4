@@ -31,7 +31,7 @@ router.get('/recipe/:food', function(req, res, next) {
 
 /* GET recipe page */
 router.get('/recipe', function(req, res, next) {
-  res.render('recipe-page', { title: 'toimii' });
+  res.send(dataList);
   //res.send("HELLO WORLD!");
 })
 
